@@ -1,0 +1,65 @@
+
+.home_main_container{
+    width: 100%;
+    height: 800px;
+    background: #eee;
+    position: relative;
+    padding-bottom: 30px;
+
+    h1{
+        font-size: 24px;
+        color: #00b;
+        width: 80%;
+        position: absolute;
+        left: 10%;
+        top: 30px;
+
+        @media(min-width: 700px){
+            font-size: 32px;
+        }
+    }
+
+   .controls{
+        width: 300px;
+        height: 150px;
+        background: #fdd;
+        position: absolute;
+        left: calc(50% - 150px);
+        top: 180px;
+
+        @media(min-width: 700px){
+            width:500px;
+            height: 150px;
+            left: calc(50% - 250px);
+            top: 160px;
+        }
+
+        @media(min-width: 1000px){
+            width: 250px;
+            height: 450px;
+            left: calc(50% - 350px);
+            top: 200px;
+        }
+   }
+
+   .board{
+        width: 300px;
+        height: 300px;
+        background: #cec;
+        position: absolute;
+        left: calc(50% - 150px);
+        top: 350px;
+
+        @media(min-width: 700px){
+            width: 450px;
+            height: 450px;
+            left: calc(50% - 250px);
+            top: 330px;
+        }
+
+        @media(min-width: 1000px){
+            left: calc(50% - 70px);
+            top: 200px;
+        }
+   }
+}
