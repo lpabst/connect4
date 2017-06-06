@@ -20,6 +20,9 @@ angular.module("app")
         player2: 0,
     }
 
+    var $column = $('.column');
+    var $circle = $('.circle');
+
 //Controls Fuctions
 
     $scope.getScore = function(){
@@ -34,7 +37,7 @@ angular.module("app")
                 board[i][j] = 'white';
             }
         }
-        $('.circle').css('background', '#eee');
+        $circle.css('background', '#eee');
         $scope.showAreYouSureBox = false;
     }
 
@@ -66,8 +69,38 @@ angular.module("app")
 
 // Board Functions
     
-  //Player 1 = 'blue', Player 2 = 'red'
+    //Show piece drop location on hover
+    $column.mouseenter(highlightLocation);
 
+    function highlightLocation(){
+        var columnIndex = $(this).attr('id').split('').pop();
+        for (var j = 0; j < board[columnIndex].length; j++){
+            if (board[columnIndex][j] == 'white'){
+                var id = '#c'+columnIndex+'r'+j;
+                if (color == 'blue'){
+                    return $(id).css('background', '#aaf');
+                }else{
+                    return $(id).css('background', '#faa');
+                }
+                
+            }
+        }
+    }
+
+    //Return css to normal background when mouse
+    //leave the hover
+    $column.mouseleave(function(){
+        var columnIndex = $(this).attr('id').split('').pop();
+        for (var j = 0; j < board[columnIndex].length; j++){
+            if (board[columnIndex][j] != 'blue' 
+            && board[columnIndex][j] != 'red'){
+                var id = '#c'+columnIndex+'r'+j;
+                $(id).css('background', '#eee');
+            }
+        }
+    })
+
+  //Player 1 = 'blue', Player 2 = 'red'
     function colorChange(){
         if (color == 'blue'){
             color = 'red';
