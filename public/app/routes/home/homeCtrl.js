@@ -153,9 +153,7 @@ angular.module("app")
         }
     });
 
-//Check Winner Functions
-    
-        
+//Check for winner         
     $scope.checkForWinner = function(){
         //vertical winner
         for (var i = 0; i < board.length; i ++){
@@ -196,15 +194,42 @@ angular.module("app")
         }
 
         //bottom left to upper right winner
-
+        for (var i = 0; i < board.length-3; i ++){
+            for (var j = 0; j <=2; j ++){
+                if (board[i][j] == 'blue'
+                && board[i+1][j+1] == 'blue'
+                && board[i+2][j+2] == 'blue'
+                && board[i+3][j+3] == 'blue'){
+                    clearBoard();
+                    return $scope.score.player1 += 1;
+                }else if (board[i][j] == 'red'
+                && board[i+1][j+1] == 'red'
+                && board[i+2][j+2] == 'red'
+                && board[i+3][j+3] == 'red'){
+                    clearBoard();
+                    return $scope.score.player2 += 1;
+                }
+            }
+        }
 
         //upper left to bottom right winner
+        for (var i = 0; i < board.length-3; i ++){
+            for (var j = board[i].length-1; j >= 3; j --){
+                if (board[i][j] == 'blue'
+                && board[i+1][j-1] == 'blue'
+                && board[i+2][j-2] == 'blue'
+                && board[i+3][j-3] == 'blue'){
+                    clearBoard();
+                    return $scope.score.player1 += 1;
+                }else if (board[i][j] == 'red'
+                && board[i+1][j-1] == 'red'
+                && board[i+2][j-2] == 'red'
+                && board[i+3][j-3] == 'red'){
+                    clearBoard();
+                    return $scope.score.player2 += 1;
+                }
+            }
+        }
     }
-    
-
-
-
-
-
 
 });
