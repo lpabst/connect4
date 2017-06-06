@@ -201,6 +201,10 @@
        height: auto;
        position: absolute;
        z-index: 0;
+
+       @media(min-width: 1000px){
+           width: 100px;
+       }
    }
 
    #ghost1{
