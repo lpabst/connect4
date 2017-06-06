@@ -149,9 +149,39 @@ angular.module("app")
         }
     });
 
-
+//Check Winner Functions
+    $('.column').click(function(){
+        checkForWinner();
+    })
         
+    function checkForWinner(){
+        //vertical winner
+        for (var i = 0; i < board.length; i ++){
+            for (var j = 0; j <= 2; j ++){
+                if (board[i][j] == 'blue'
+                && board[i][j+1] == 'blue'
+                && board[i][j+2] == 'blue'
+                && board[i][j+3] == 'blue'){
+                    clearBoard();
+                    score.player1 += 1;
+                }else if (board[i][j] == 'red'
+                && board[i][j+1] == 'red'
+                && board[i][j+2] == 'red'
+                && board[i][j+3] == 'red'){
+                    clearBoard();
+                    score.player2 += 1;
+                }
+            }
+        }
 
+        //horizontal winner
+
+
+        //bottom left to upper right winner
+
+
+        //upper left to bottom right winner
+    }
     
 
 
