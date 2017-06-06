@@ -10,7 +10,10 @@ angular.module("app")
         ['white', 'white', 'white', 'white', 'white', 'white', ], //column5
         ['white', 'white', 'white', 'white', 'white', 'white', ]  //column6
     ];
-    
+    var score = {
+        player1: 0,
+        player2: 0
+    }
     var color = 'blue';
     var id = '';
     $scope.showAreYouSureBox = false;
@@ -18,17 +21,22 @@ angular.module("app")
 
 //Controls Fuctions
 
-    $scope.clearBoard = function(){
+    var clearBoard = function(){
         for (var i = 0; i < board.length; i++){
             for (var j = 0; j < board[i].length; j++){
                 board[i][j] = 'white';
             }
         }
         $('.circle').css('background', '#eee');
+        $scope.showAreYouSureBox = false;
     }
 
-    $scope.resetScore = function(){
-
+    var resetScore = function(){
+        score = {
+            player1: 0,
+            player2: 0
+        }
+        $scope.showAreYouSureBox = false;
     }
 
     $scope.areYouSure = function(num, str){
@@ -52,16 +60,6 @@ angular.module("app")
 // Board Functions
     
   //Player 1 = 'blue', Player 2 = 'red'
-
-    // var player1 = {
-    //     color: 'blue'
-    // }
-    // var player2 = {
-    //     color: 'red'
-    // }
-
-    // var turn = player1;
-   
 
     function colorChange(){
         if (color == 'blue'){

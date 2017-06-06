@@ -9,10 +9,10 @@
         <button class='reset_score' ng-click='areYouSure(2, "reset the score?")'>Reset Score</button>
     </div>
 
-    <div class='double_check' ng-show='false'>
+    <div class='double_check' ng-show='showAreYouSureBox'>
         <p>Are you sure you want to {{ action }}</p>
         <button ng-click='executeSelectedFunction()'>Yes</button>
-        <button ng-click='hideAreYouSureBox()'>No</button>
+        <button ng-click='hideAreYouSureBox()' id='no_button'>No</button>
     </div>
 
     <div class='board'>

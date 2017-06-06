@@ -87,6 +87,23 @@
             width: 50%;
             left: 25%;
         }
+
+        p{
+            width: 60%;
+            position: absolute;
+            left: 20%;
+            top: 10px;
+        }
+
+        button{
+            position: absolute;
+            top: 50%;
+            left: 30%;
+        }
+        
+        #no_button{
+            left: 55%;
+        }
     }
 
    .board{
