@@ -7,10 +7,18 @@
     <div class='controls'>
         <button class='new_game' ng-click='areYouSure(1, "clear the board?")'>New Game</button>
         <button class='reset_score' ng-click='areYouSure(2, "reset the score?")'>Reset Score</button>
+        <div class='player_names'>
+            <p>PLAYER 1 (blue)</p>
+            <p>Name:</p>
+            <input type='text' ng-model='playerOneName'>
+            <p>PLAYER 2 (red)</p>
+            <p>Name:</p>
+            <input type='text' ng-model='playerTwoName'>
+        </div>
         <div class='score_box'>
             <p>Score:</p>
-            <p>Player1 (blue): {{ score.player1 }}</p>
-            <p>Player2 (red): {{ score.player2 }}</p>
+            <p>{{ playerOneName }}: {{ score.player1 }}</p>
+            <p>{{ playerTwoName }}: {{ score.player2 }}</p>
         </div>
     </div>
 

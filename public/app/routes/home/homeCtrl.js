@@ -14,6 +14,8 @@ angular.module("app")
     var id = '';
     var functionToExecute = clearBoard;
     
+    $scope.playerOneName = 'Player 1';
+    $scope.playerTwoName = 'Player 2';
     $scope.showAreYouSureBox = false;
     $scope.score = {
         player1: 0,

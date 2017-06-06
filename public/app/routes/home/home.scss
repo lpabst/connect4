@@ -21,7 +21,7 @@
 
    .controls{
         width: 300px;
-        height: 150px;
+        height: 200px;
         background: #fdd;
         position: absolute;
         left: calc(50% - 150px);
@@ -29,7 +29,6 @@
 
         @media(min-width: 700px){
             width:450px;
-            height: 150px;
             left: calc(50% - 250px);
             top: 160px;
         }
@@ -65,6 +64,29 @@
                 left: calc(50% - 60px);
             }
             
+        }
+
+        .player_names{
+            width: 165px;
+            position: absolute;
+            bottom: 5px;
+            right: 5px;
+            font-weight: bold;
+
+            @media(min-width: 1000px){
+                top: 100px;
+                left: 5px;
+            }
+
+            p{
+                font-size: 13px;
+                margin: 2px 0px 1px 0px;
+            }
+
+            input{
+                width: 160px;
+                margin-bottom: 5px;
+            }
         }
 
         .score_box{
@@ -123,7 +145,7 @@
         background: #cec;
         position: absolute;
         left: calc(50% - 150px);
-        top: 350px;
+        top: 400px;
         border: 1px solid black;
         display: flex;
         justify-content: space-between;
@@ -133,7 +155,7 @@
             width: 450px;
             height: 390px;
             left: calc(50% - 250px);
-            top: 330px;
+            top: 380px;
         }
 
         @media(min-width: 1000px){
