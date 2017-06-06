@@ -18,17 +18,6 @@ angular.module("app")
     $scope.score = {
         player1: 0,
         player2: 0,
-        update: function(str){
-            if (str == 'player1'){
-                this.player1 += 1;
-            }else {
-                this.player2 += 1;
-            }
-        },
-        reset: function(){
-            this.player1 = 0;
-            this.player2 = 0;
-        }
     }
 
 //Controls Fuctions
@@ -50,7 +39,10 @@ angular.module("app")
     }
 
     var resetScore = function(){
-        $scope.score.reset();
+        $scope.score = {
+            player1: 0,
+            player2: 0
+        }
         $scope.showAreYouSureBox = false;
     }
 
@@ -162,11 +154,9 @@ angular.module("app")
     });
 
 //Check Winner Functions
-    $('.column').click(function(){
-        checkForWinner();
-    })
+    
         
-    function checkForWinner(){
+    $scope.checkForWinner = function(){
         //vertical winner
         for (var i = 0; i < board.length; i ++){
             for (var j = 0; j <= 2; j ++){
@@ -175,13 +165,13 @@ angular.module("app")
                 && board[i][j+2] == 'blue'
                 && board[i][j+3] == 'blue'){
                     clearBoard();
-                    $scope.score.update('player1');
+                    return $scope.score.player1 += 1;
                 }else if (board[i][j] == 'red'
                 && board[i][j+1] == 'red'
                 && board[i][j+2] == 'red'
                 && board[i][j+3] == 'red'){
                     clearBoard();
-                    $scope.score.update('player2');
+                    return $scope.score.player2 += 1;
                 }
             }
         }
@@ -194,13 +184,13 @@ angular.module("app")
                 && board[i+2][j] == 'blue'
                 && board[i+3][j] == 'blue'){
                     clearBoard();
-                    $scope.score.update('player1');
+                    return $scope.score.player1 += 1;
                 }else if (board[i][j] == 'red'
                 && board[i+1][j] == 'red'
                 && board[i+2][j] == 'red'
                 && board[i+3][j] == 'red'){
                     clearBoard();
-                    $scope.score.update('player2');
+                    return $scope.score.player2 += 1;
                 }
             }
         }
