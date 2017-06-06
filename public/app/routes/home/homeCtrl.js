@@ -2,15 +2,15 @@ angular.module("app")
 .controller("homeCtrl", function($scope) {
 
     var board = [
-        ['white', 'white', 'white', 'white', 'white', 'white', ], //column0
-        ['white', 'white', 'white', 'white', 'white', 'white', ], //column1
-        ['white', 'white', 'white', 'white', 'white', 'white', ], //column2
-        ['white', 'white', 'white', 'white', 'white', 'white', ], //column3
-        ['white', 'white', 'white', 'white', 'white', 'white', ], //column4
-        ['white', 'white', 'white', 'white', 'white', 'white', ], //column5
-        ['white', 'white', 'white', 'white', 'white', 'white', ]  //column6
+        ['#111', '#111', '#111', '#111', '#111', '#111', ], //column0
+        ['#111', '#111', '#111', '#111', '#111', '#111', ], //column1
+        ['#111', '#111', '#111', '#111', '#111', '#111', ], //column2
+        ['#111', '#111', '#111', '#111', '#111', '#111', ], //column3
+        ['#111', '#111', '#111', '#111', '#111', '#111', ], //column4
+        ['#111', '#111', '#111', '#111', '#111', '#111', ], //column5
+        ['#111', '#111', '#111', '#111', '#111', '#111', ]  //column6
     ];
-    var color = 'blue';
+    var color = '#7f3';
     var id = '';
     var functionToExecute = clearBoard;
     
@@ -36,10 +36,10 @@ angular.module("app")
     var clearBoard = function(){
         for (var i = 0; i < board.length; i++){
             for (var j = 0; j < board[i].length; j++){
-                board[i][j] = 'white';
+                board[i][j] = '#111';
             }
         }
-        $circle.css('background', '#eee');
+        $circle.css('background', '#111');
         $scope.showAreYouSureBox = false;
     }
 
@@ -77,12 +77,12 @@ angular.module("app")
     function highlightLocation(){
         var columnIndex = $(this).attr('id').split('').pop();   //gets column index from the 'id' attribute
         for (var j = 0; j < board[columnIndex].length; j++){    //loops through the selected column in the array
-            if (board[columnIndex][j] == 'white'){              //finds the first circle that is white
+            if (board[columnIndex][j] == '#111'){              //finds the first circle that is #111
                 var id = '#c'+columnIndex+'r'+j;                //constructs the proper id selector using the current array index 
-                if (color == 'blue'){                       
-                    return $(id).css('background', '#aaf');     //highlights the id-selected div light blue;
+                if (color == '#7f3'){                       
+                    return $(id).css('background', '#af7');     //highlights the id-selected div light green;
                 }else{
-                    return $(id).css('background', '#faa');     //highlights the id-selected div light red;
+                    return $(id).css('background', '#940');     //highlights the id-selected div light orange;
                 }
                 
             }
@@ -94,20 +94,20 @@ angular.module("app")
     $column.mouseleave(function(){
         var columnIndex = $(this).attr('id').split('').pop();
         for (var j = 0; j < board[columnIndex].length; j++){
-            if (board[columnIndex][j] != 'blue' 
-            && board[columnIndex][j] != 'red'){
+            if (board[columnIndex][j] != '#7f3' 
+            && board[columnIndex][j] !='#f80'){
                 var id = '#c'+columnIndex+'r'+j;
-                $(id).css('background', '#eee');
+                $(id).css('background', '#111');
             }
         }
     })
 
-  //Player 1 = 'blue', Player 2 = 'red'
+  //Player 1 = '#7f3 (green)', Player 2 ='#f80 (orange)'
     function colorChange(){
-        if (color == 'blue'){
-            color = 'red';
+        if (color == '#7f3'){
+            color = '#f80';
         }else{
-            color = 'blue';
+            color = '#7f3';
         }
     }
 
@@ -116,7 +116,7 @@ angular.module("app")
     $column.click(function(){
         var columnIndex = $(this).attr('id').split('').pop();   //gets column index from the 'id' attribute
         for (var j = 0; j < board[columnIndex].length; j++){    //loops through the selected column in the array
-            if (board[columnIndex][j] == 'white'){              //finds the first circle that is white
+            if (board[columnIndex][j] == '#111'){              //finds the first circle that is #111
                 board[columnIndex][j] = color;                  //updates the array according to who made the move
                 var id = '#c'+columnIndex+'r'+j;                //constructs the appropriate id-selector
                 $(id).css('background', color);                 //updates the id-selected div according to who made the move
@@ -130,16 +130,16 @@ angular.module("app")
         //vertical winner
         for (var i = 0; i < board.length; i ++){
             for (var j = 0; j <= 2; j ++){
-                if (board[i][j] == 'blue'
-                && board[i][j+1] == 'blue'
-                && board[i][j+2] == 'blue'
-                && board[i][j+3] == 'blue'){
+                if (board[i][j] == '#7f3'
+                && board[i][j+1] == '#7f3'
+                && board[i][j+2] == '#7f3'
+                && board[i][j+3] == '#7f3'){
                     clearBoard();
                     return $scope.score.player1 += 1;
-                }else if (board[i][j] == 'red'
-                && board[i][j+1] == 'red'
-                && board[i][j+2] == 'red'
-                && board[i][j+3] == 'red'){
+                }else if (board[i][j] =='#f80'
+                && board[i][j+1] =='#f80'
+                && board[i][j+2] =='#f80'
+                && board[i][j+3] =='#f80'){
                     clearBoard();
                     return $scope.score.player2 += 1;
                 }
@@ -149,16 +149,16 @@ angular.module("app")
         //horizontal winner
         for (var i = 0; i < board.length-3; i ++){
             for (var j = 0; j < 6; j ++){
-                if (board[i][j] == 'blue'
-                && board[i+1][j] == 'blue'
-                && board[i+2][j] == 'blue'
-                && board[i+3][j] == 'blue'){
+                if (board[i][j] == '#7f3'
+                && board[i+1][j] == '#7f3'
+                && board[i+2][j] == '#7f3'
+                && board[i+3][j] == '#7f3'){
                     clearBoard();
                     return $scope.score.player1 += 1;
-                }else if (board[i][j] == 'red'
-                && board[i+1][j] == 'red'
-                && board[i+2][j] == 'red'
-                && board[i+3][j] == 'red'){
+                }else if (board[i][j] =='#f80'
+                && board[i+1][j] =='#f80'
+                && board[i+2][j] =='#f80'
+                && board[i+3][j] =='#f80'){
                     clearBoard();
                     return $scope.score.player2 += 1;
                 }
@@ -168,16 +168,16 @@ angular.module("app")
         //bottom left to upper right winner
         for (var i = 0; i < board.length-3; i ++){
             for (var j = 0; j <=2; j ++){
-                if (board[i][j] == 'blue'
-                && board[i+1][j+1] == 'blue'
-                && board[i+2][j+2] == 'blue'
-                && board[i+3][j+3] == 'blue'){
+                if (board[i][j] == '#7f3'
+                && board[i+1][j+1] == '#7f3'
+                && board[i+2][j+2] == '#7f3'
+                && board[i+3][j+3] == '#7f3'){
                     clearBoard();
                     return $scope.score.player1 += 1;
-                }else if (board[i][j] == 'red'
-                && board[i+1][j+1] == 'red'
-                && board[i+2][j+2] == 'red'
-                && board[i+3][j+3] == 'red'){
+                }else if (board[i][j] =='#f80'
+                && board[i+1][j+1] =='#f80'
+                && board[i+2][j+2] =='#f80'
+                && board[i+3][j+3] =='#f80'){
                     clearBoard();
                     return $scope.score.player2 += 1;
                 }
@@ -187,16 +187,16 @@ angular.module("app")
         //upper left to bottom right winner
         for (var i = 0; i < board.length-3; i ++){
             for (var j = board[i].length-1; j >= 3; j --){
-                if (board[i][j] == 'blue'
-                && board[i+1][j-1] == 'blue'
-                && board[i+2][j-2] == 'blue'
-                && board[i+3][j-3] == 'blue'){
+                if (board[i][j] == '#7f3'
+                && board[i+1][j-1] == '#7f3'
+                && board[i+2][j-2] == '#7f3'
+                && board[i+3][j-3] == '#7f3'){
                     clearBoard();
                     return $scope.score.player1 += 1;
-                }else if (board[i][j] == 'red'
-                && board[i+1][j-1] == 'red'
-                && board[i+2][j-2] == 'red'
-                && board[i+3][j-3] == 'red'){
+                }else if (board[i][j] =='#f80'
+                && board[i+1][j-1] =='#f80'
+                && board[i+2][j-2] =='#f80'
+                && board[i+3][j-3] =='#f80'){
                     clearBoard();
                     return $scope.score.player2 += 1;
                 }

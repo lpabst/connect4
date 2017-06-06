@@ -2,13 +2,13 @@
 .home_main_container{
     width: 100%;
     height: 800px;
-    background: #eee;
+    background: linear-gradient(#222, #000);
     position: relative;
     padding-bottom: 30px;
 
     h1{
         font-size: 24px;
-        color: #00b;
+        color: #f60;
         width: 80%;
         position: absolute;
         left: 10%;
@@ -22,7 +22,8 @@
    .controls{
         width: 300px;
         height: 200px;
-        background: #fdd;
+        background: #bdff58;
+        border-radius: 2px;
         position: absolute;
         left: calc(50% - 150px);
         top: 180px;
@@ -42,6 +43,7 @@
 
         .new_game{
             width: 120px;
+            border-radius: 48%;
             position: absolute;
             top: 5px;
             left: 10px;
@@ -55,6 +57,7 @@
 
         .reset_score{
             width: 120px;
+            border-radius: 48%;
             position: absolute;
             top: 5px;
             right: 10px;
@@ -75,7 +78,7 @@
 
             @media(min-width: 1000px){
                 top: 100px;
-                left: 5px;
+                left: 10px;
             }
 
             p{
@@ -142,11 +145,11 @@
    .board{
         width: 300px;
         height: 260px;
-        background: #cec;
+        background: #c91e08;
+        border-radius: 8px;
         position: absolute;
         left: calc(50% - 150px);
         top: 400px;
-        border: 1px solid black;
         display: flex;
         justify-content: space-between;
         align-items: flex-end;
@@ -174,13 +177,13 @@
    }
 
    .column:hover{
-       background: #aca;
+       background: #680f04;
    }
 
    .circle{
        width: 40px;
        height: 40px;
-       background: #eee;
+       background: #111;
        border-radius: 50%;
        border-top: 1px solid black;
 
