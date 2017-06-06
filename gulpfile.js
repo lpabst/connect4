@@ -7,6 +7,7 @@ var nodemon = require('gulp-nodemon');
 var paths = {
 	jsSource: ['public/app/**/*.js'],
 	sassSource: ['public/**/*.scss'], // Change scss to sass if you want to work with it instead.
+	imageSource: ['public/img/**/*.*'],
 	copySource: ['public/**/*.html', 'public/**/*.css'],
 	server: ['server/index.js']
 };
@@ -31,16 +32,22 @@ gulp.task('js', function() {
 		.pipe(gulp.dest('./dist'));
 });
 
+gulp.task('pics', function() {
+	gulp.src(paths.imageSource)
+		.pipe(gulp.dest('./dist/img'));
+});
+
 gulp.task('copy', function() {
 	gulp.src(paths.copySource)
 		.pipe(gulp.dest('./dist'));
 });
 
-gulp.task('build', ['js', 'sass', 'copy']);
+gulp.task('build', ['js', 'sass', 'pics', 'copy']);
 
 gulp.task('watch', function() {
 	gulp.watch(paths.jsSource, ['js']);
 	gulp.watch(paths.sassSource, ['sass']);
+	gulp.watch(paths.sassSource, ['pics']);
 	gulp.watch(paths.copySource, ['copy']);
 });
 
