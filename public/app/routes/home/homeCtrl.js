@@ -73,14 +73,14 @@ angular.module("app")
     $column.mouseenter(highlightLocation);
 
     function highlightLocation(){
-        var columnIndex = $(this).attr('id').split('').pop();
-        for (var j = 0; j < board[columnIndex].length; j++){
-            if (board[columnIndex][j] == 'white'){
-                var id = '#c'+columnIndex+'r'+j;
-                if (color == 'blue'){
-                    return $(id).css('background', '#aaf');
+        var columnIndex = $(this).attr('id').split('').pop();   //gets column index from the 'id' attribute
+        for (var j = 0; j < board[columnIndex].length; j++){    //loops through the selected column in the array
+            if (board[columnIndex][j] == 'white'){              //finds the first circle that is white
+                var id = '#c'+columnIndex+'r'+j;                //constructs the proper id selector using the current array index 
+                if (color == 'blue'){                       
+                    return $(id).css('background', '#aaf');     //highlights the id-selected div light blue;
                 }else{
-                    return $(id).css('background', '#faa');
+                    return $(id).css('background', '#faa');     //highlights the id-selected div light red;
                 }
                 
             }
@@ -88,7 +88,7 @@ angular.module("app")
     }
 
     //Return css to normal background when mouse
-    //leave the hover
+    //leaves the hover
     $column.mouseleave(function(){
         var columnIndex = $(this).attr('id').split('').pop();
         for (var j = 0; j < board[columnIndex].length; j++){
@@ -109,82 +109,19 @@ angular.module("app")
         }
     }
 
-    $('#col_0').click(function(){
-        for (var i = 0; i < board[0].length; i ++){
-            if (board[0][i] == 'white'){
-                id = '#c0r' + i;
-                $(id).css('background', color);
-                board[0][i] = color;
-                return colorChange();
+//Changes the color of appropriate circle 
+//when column is clicked
+    $column.click(function(){
+        var columnIndex = $(this).attr('id').split('').pop();   //gets column index from the 'id' attribute
+        for (var j = 0; j < board[columnIndex].length; j++){    //loops through the selected column in the array
+            if (board[columnIndex][j] == 'white'){              //finds the first circle that is white
+                board[columnIndex][j] = color;                  //updates the array according to who made the move
+                var id = '#c'+columnIndex+'r'+j;                //constructs the appropriate id-selector
+                $(id).css('background', color);                 //updates the id-selected div according to who made the move
+                return colorChange();                           //changes who's turn it is
             }
         }
-    });
-
-    $('#col_1').click(function(){
-        for (var i = 0; i < board[1].length; i ++){
-            if (board[1][i] == 'white'){
-                id = '#c1r' + i;
-                $(id).css('background', color);
-                board[1][i] = color;
-                return colorChange();
-            }
-        }
-    });
-
-    $('#col_2').click(function(){
-        for (var i = 0; i < board[2].length; i ++){
-            if (board[2][i] == 'white'){
-                id = '#c2r' + i;
-                $(id).css('background', color);
-                board[2][i] = color;
-                return colorChange();
-            }
-        }
-    });
-
-    $('#col_3').click(function(){
-        for (var i = 0; i < board[3].length; i ++){
-            if (board[3][i] == 'white'){
-                id = '#c3r' + i;
-                $(id).css('background', color);
-                board[3][i] = color;
-                return colorChange();
-            }
-        }
-    });
-
-    $('#col_4').click(function(){
-        for (var i = 0; i < board[4].length; i ++){
-            if (board[4][i] == 'white'){
-                id = '#c4r' + i;
-                $(id).css('background', color);
-                board[4][i] = color;
-                return colorChange();
-            }
-        }
-    });
-
-    $('#col_5').click(function(){
-        for (var i = 0; i < board[5].length; i ++){
-            if (board[5][i] == 'white'){
-                id = '#c5r' + i;
-                $(id).css('background', color);
-                board[5][i] = color;
-                return colorChange();
-            }
-        }
-    });
-
-    $('#col_6').click(function(){
-        for (var i = 0; i < board[6].length; i ++){
-            if (board[6][i] == 'white'){
-                id = '#c6r' + i;
-                $(id).css('background', color);
-                board[6][i] = color;
-                return colorChange();
-            }
-        }
-    });
+    })
 
 //Check for winner         
     $scope.checkForWinner = function(){
