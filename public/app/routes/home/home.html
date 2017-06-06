@@ -7,6 +7,11 @@
     <div class='controls'>
         <button class='new_game' ng-click='areYouSure(1, "clear the board?")'>New Game</button>
         <button class='reset_score' ng-click='areYouSure(2, "reset the score?")'>Reset Score</button>
+        <div class='score_box'>
+            <p>Score:</p>
+            <p>Player1: {{ pOneScore }}</p>
+            <p>Player2: {{ pTwoScore }}</p>
+        </div>
     </div>
 
     <div class='double_check' ng-show='showAreYouSureBox'>

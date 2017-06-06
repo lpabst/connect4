@@ -16,8 +16,11 @@ angular.module("app")
     }
     var color = 'blue';
     var id = '';
-    $scope.showAreYouSureBox = false;
     var functionToExecute = clearBoard;
+    
+    $scope.pOneScore = score.player1;
+    $scope.pTwoScore = score.player2;
+    $scope.showAreYouSureBox = false;
 
 //Controls Fuctions
 
