@@ -9,6 +9,7 @@
     h1{
         font-size: 24px;
         color: #f60;
+        text-shadow: 1px 1px black;
         width: 80%;
         position: absolute;
         left: 10%;
@@ -106,10 +107,11 @@
     .double_check{
         width: 80%;
         height: 60vh;
-        background: #aaa
-        ;
+        background: #444;
         font-size: 24px;
         font-weight: bold;
+        color: #f60;
+        text-shadow: 1px 1px black;
         position: absolute;
         left: 10%;
         top: 20vh;
@@ -135,6 +137,7 @@
             position: absolute;
             top: 50%;
             left: 30%;
+            color: black;
         }
         
         #no_button{
@@ -191,5 +194,57 @@
            width: 60px;
            height: 60px;
        }
+   }
+
+   .image{
+       width: 60px;
+       height: auto;
+       position: absolute;
+       z-index: 0;
+   }
+
+   #ghost1{
+       left: 15px;
+       top: 25px;
+   }
+
+   #ghost2{
+       right: 32px;
+       bottom: 18px;
+   }
+
+   #ghost3{
+       left: 18px;
+       bottom: 45px;
+   }
+
+   #pumpkin1{
+       left: 45px;
+       top: 50%;
+   }
+
+   #pumpkin2{
+       right: 19px;
+       top: 50%;
+   }
+
+   #pumpkin3{
+       bottom: 9px;
+       left: 50%;
+   }
+
+   #witch1{
+       left: 5px;
+       top: 205px;
+   }
+
+   #witch2{
+       left: 50%;
+       top: 45px;
+   }
+
+   #witch3{
+       right: 25px;
+       top: 15px;
    }
 }
