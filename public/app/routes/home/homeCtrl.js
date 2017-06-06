@@ -10,19 +10,34 @@ angular.module("app")
         ['white', 'white', 'white', 'white', 'white', 'white', ], //column5
         ['white', 'white', 'white', 'white', 'white', 'white', ]  //column6
     ];
-    var score = {
-        player1: 0,
-        player2: 0
-    }
     var color = 'blue';
     var id = '';
     var functionToExecute = clearBoard;
     
-    $scope.pOneScore = score.player1;
-    $scope.pTwoScore = score.player2;
     $scope.showAreYouSureBox = false;
+    $scope.score = {
+        player1: 0,
+        player2: 0,
+        update: function(str){
+            if (str == 'player1'){
+                this.player1 += 1;
+            }else {
+                this.player2 += 1;
+            }
+        },
+        reset: function(){
+            this.player1 = 0;
+            this.player2 = 0;
+        }
+    }
 
 //Controls Fuctions
+
+    $scope.getScore = function(){
+        return $scope.score;
+    }
+
+    $scope.getScore();
 
     var clearBoard = function(){
         for (var i = 0; i < board.length; i++){
@@ -35,10 +50,7 @@ angular.module("app")
     }
 
     var resetScore = function(){
-        score = {
-            player1: 0,
-            player2: 0
-        }
+        $scope.score.reset();
         $scope.showAreYouSureBox = false;
     }
 
@@ -163,19 +175,35 @@ angular.module("app")
                 && board[i][j+2] == 'blue'
                 && board[i][j+3] == 'blue'){
                     clearBoard();
-                    score.player1 += 1;
+                    $scope.score.update('player1');
                 }else if (board[i][j] == 'red'
                 && board[i][j+1] == 'red'
                 && board[i][j+2] == 'red'
                 && board[i][j+3] == 'red'){
                     clearBoard();
-                    score.player2 += 1;
+                    $scope.score.update('player2');
                 }
             }
         }
 
         //horizontal winner
-
+        for (var i = 0; i < board.length-3; i ++){
+            for (var j = 0; j < 6; j ++){
+                if (board[i][j] == 'blue'
+                && board[i+1][j] == 'blue'
+                && board[i+2][j] == 'blue'
+                && board[i+3][j] == 'blue'){
+                    clearBoard();
+                    $scope.score.update('player1');
+                }else if (board[i][j] == 'red'
+                && board[i+1][j] == 'red'
+                && board[i+2][j] == 'red'
+                && board[i+3][j] == 'red'){
+                    clearBoard();
+                    $scope.score.update('player2');
+                }
+            }
+        }
 
         //bottom left to upper right winner
 
