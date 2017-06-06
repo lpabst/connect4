@@ -5,7 +5,14 @@
         horizontally, or diagonally</h1>
 
     <div class='controls'>
-        <div class='new_game'></div>
+        <button class='new_game' ng-click='areYouSure(1, "clear the board?")'>New Game</button>
+        <button class='reset_score' ng-click='areYouSure(2, "reset the score?")'>Reset Score</button>
+    </div>
+
+    <div class='double_check' ng-show='false'>
+        <p>Are you sure you want to {{ action }}</p>
+        <button ng-click='executeSelectedFunction()'>Yes</button>
+        <button ng-click='hideAreYouSureBox()'>No</button>
     </div>
 
     <div class='board'>
