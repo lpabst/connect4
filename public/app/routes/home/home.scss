@@ -199,7 +199,6 @@
    .img_container{
        position: absolute;
        z-index: 0;
-       border: 2px solid white;
    }
 
    #ghost1{
@@ -216,6 +215,7 @@
        bottom: 270px;
        
        img{ 
+           transform: rotate(-18deg);
             animation: moveMedium 19s infinite linear;
        }
    }
@@ -233,8 +233,12 @@
        left: 45px;
        top: 40%;
        
-       img{ 
-            animation: moveLarge 23s infinite linear;
+       img{
+           animation: moveSmall 23s infinite linear;
+
+           @media(min-width:1000px){
+                animation: moveLarge 23s infinite linear;
+           } 
        }
    }
 
@@ -243,6 +247,7 @@
        top: 50%;
        
        img{ 
+           transform: rotate(-70deg);
             animation: moveMedium 40s infinite linear reverse;
        }
    }
@@ -260,8 +265,13 @@
        left: 5px;
        top: 205px;
        
-       img{ 
-            animation: moveLarge 12s infinite linear;
+       img{
+           transform: rotate(103deg);
+           animation: moveSmall 8s infinite linear;
+
+           @media(min-width:1000px){
+                animation: moveLarge 12s infinite linear reverse;
+           } 
        }
    }
 
@@ -339,17 +349,21 @@
     25%{
         left: 150px;
         top: 300px;
+        transform: rotate(90deg);
     }
     50%{
         left: 300px;
         top: 100px;
+        transform: rotate(180deg);
     }
     75%{
         left: 200px;
         top: -100px;
+        transform: rotate(270deg);
     }
     100%{
         left: 0px;
         top: 0px;
+        transform: rotate(360deg);
     }
 }

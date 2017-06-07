@@ -204,4 +204,26 @@ angular.module("app")
         }
     }
 
+    //Audio Controls
+    var playlist=[
+        './img/audio/tiptoe.mp3',
+        './img/audio/bats.mp3',
+        './img/audio/troll_hunt.mp3',
+        './img/audio/in_doubt.mp3',
+        './img/audio/spy_story.mp3'
+    ];
+    
+    var nextSong = 1;
+    var audio = document.getElementById('audio');
+    audio.addEventListener('ended', function(){
+        audio.src = playlist[nextSong];
+        audio.load();
+        audio.play();
+        if (nextSong >= playlist.length-1){
+            nextSong = 0;
+        }else{
+            nextSong++
+        }
+    })
+
 });
