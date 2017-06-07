@@ -2,7 +2,7 @@
 <section class='home_main_container'>
 
     <!--halloween_music track from www.bensound.com-->
-    <audio src='./img/audio/tiptoe.mp3' controls autoplay id='audio'></audio>
+    <audio src='./img/audio/tiptoe.mp3' autoplay id='audio'></audio>
 
     <h1>To win, connect 4 pieces in a row vertically,
         horizontally, or diagonally</h1>
@@ -25,11 +25,18 @@
         </div>
     </div>
 
+<!--Initially Hidden Boxes-->
     <div class='double_check' ng-show='showAreYouSureBox'>
         <p>Are you sure you want to {{ action }}</p>
         <button ng-click='executeSelectedFunction()'>Yes</button>
         <button ng-click='hideAreYouSureBox()' id='no_button'>No</button>
     </div>
+
+    <div class='winner_box' ng-show='showWinnerBox'>
+        <p>{{ winner }} won!</p>
+        <button ng-click='newGame()'>OK</button>
+    </div>
+<!--*************************-->
 
     <div class='board' ng-click='checkForWinner()'>
 

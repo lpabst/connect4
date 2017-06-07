@@ -17,6 +17,7 @@ angular.module("app")
     $scope.playerOneName = 'Player 1';
     $scope.playerTwoName = 'Player 2';
     $scope.showAreYouSureBox = false;
+    $scope.showWinnerBox = false;
     $scope.score = {
         player1: 0,
         player2: 0,
@@ -125,7 +126,17 @@ angular.module("app")
         }
     })
 
-//Check for winner         
+//Game Over / Winner functions
+    $scope.showWinner = function(str){
+        $scope.winner = str;
+        $scope.showWinnerBox = true;
+    }
+
+    $scope.newGame = function(){
+        $scope.showWinnerBox = false;
+        clearBoard();
+    }
+
     $scope.checkForWinner = function(){
         //vertical winner
         for (var i = 0; i < board.length; i ++){
@@ -134,13 +145,13 @@ angular.module("app")
                 && board[i][j+1] == '#7f3'
                 && board[i][j+2] == '#7f3'
                 && board[i][j+3] == '#7f3'){
-                    clearBoard();
+                    $scope.showWinner('Player 1');
                     return $scope.score.player1 += 1;
                 }else if (board[i][j] =='#f80'
                 && board[i][j+1] =='#f80'
                 && board[i][j+2] =='#f80'
                 && board[i][j+3] =='#f80'){
-                    clearBoard();
+                    $scope.showWinner('Player 2');
                     return $scope.score.player2 += 1;
                 }
             }
@@ -153,13 +164,13 @@ angular.module("app")
                 && board[i+1][j] == '#7f3'
                 && board[i+2][j] == '#7f3'
                 && board[i+3][j] == '#7f3'){
-                    clearBoard();
+                    $scope.showWinner('Player 1');
                     return $scope.score.player1 += 1;
                 }else if (board[i][j] =='#f80'
                 && board[i+1][j] =='#f80'
                 && board[i+2][j] =='#f80'
                 && board[i+3][j] =='#f80'){
-                    clearBoard();
+                    $scope.showWinner('Player 2');
                     return $scope.score.player2 += 1;
                 }
             }
@@ -172,13 +183,13 @@ angular.module("app")
                 && board[i+1][j+1] == '#7f3'
                 && board[i+2][j+2] == '#7f3'
                 && board[i+3][j+3] == '#7f3'){
-                    clearBoard();
+                    $scope.showWinner('Player 1');
                     return $scope.score.player1 += 1;
                 }else if (board[i][j] =='#f80'
                 && board[i+1][j+1] =='#f80'
                 && board[i+2][j+2] =='#f80'
                 && board[i+3][j+3] =='#f80'){
-                    clearBoard();
+                    $scope.showWinner('Player 2');
                     return $scope.score.player2 += 1;
                 }
             }
@@ -191,13 +202,13 @@ angular.module("app")
                 && board[i+1][j-1] == '#7f3'
                 && board[i+2][j-2] == '#7f3'
                 && board[i+3][j-3] == '#7f3'){
-                    clearBoard();
+                    $scope.showWinner('Player 1');
                     return $scope.score.player1 += 1;
                 }else if (board[i][j] =='#f80'
                 && board[i+1][j-1] =='#f80'
                 && board[i+2][j-2] =='#f80'
                 && board[i+3][j-3] =='#f80'){
-                    clearBoard();
+                    $scope.showWinner('Player 2');
                     return $scope.score.player2 += 1;
                 }
             }

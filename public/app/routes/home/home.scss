@@ -145,6 +145,43 @@
         }
     }
 
+    .winner_box{
+        width: 200px;
+        height: 200px;
+        background: #444;
+        font-size: 24px;
+        font-weight: bold;
+        color: #f60;
+        text-shadow: 1px 1px black;
+        position: absolute;
+        left: calc(50% - 140px);
+        top: 190px;
+        z-index: 100;
+
+        @media(min-width:700px){
+            left: calc(50% - 230px);
+            top: 170px;
+        }
+        @media(min-width:1000px){
+            left: calc(50% - 330px);
+            top: 220px;
+        }
+
+        p{
+            width: 60%;
+            position: absolute;
+            left: 20%;
+            top: 10px;
+        }
+
+        button{
+            position: absolute;
+            top: 50%;
+            left: 30%;
+            color: black;
+        }
+    }
+
    .board{
         width: 300px;
         height: 260px;
