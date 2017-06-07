@@ -128,7 +128,13 @@ angular.module("app")
 
 //Game Over / Winner functions
     $scope.showWinner = function(str){
-        $scope.winner = str;
+        if (str == 'Player 1'){
+            $('.winner_box').css('color', '#bdff58');
+            $scope.winner = $scope.playerOneName;
+        }else{
+            $('.winner_box').css('color', '#f60');
+            $scope.winner = $scope.playerTwoName;
+        }
         $scope.showWinnerBox = true;
     }
 
