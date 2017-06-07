@@ -24,7 +24,6 @@ angular.module("app")
 
     var $column = $('.column');
     var $circle = $('.circle');
-    var $image = $('.image');
 
 //Controls Fuctions
 
@@ -204,17 +203,5 @@ angular.module("app")
             }
         }
     }
-
-    // //Images Function
-    // $scope.moveAround = function(){
-    //     var duration = $image.attr('id').split('').pop();
-    //     $image.animate({left: "+=50", top: '+=100'}, duration, 'linear')
-    //         .animate({left: "+=100", top: '-=50'}, duration, 'linear')
-    //         .animate({left: "-=50", top: '-=100'}, duration, 'linear')
-    //         .animate({left: "-=100", top: '+=50'}, duration, 'linear')
-    // }
-
-    // setInterval($scope.moveAround(2000), 8000);
-    // // moveAround.call($('#ghost1'), 1000);
 
 });
