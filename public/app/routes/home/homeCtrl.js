@@ -232,6 +232,7 @@ angular.module("app")
     
     var nextSong = 1;
     var audio = document.getElementById('audio');
+
     audio.addEventListener('ended', function(){
         audio.src = playlist[nextSong];
         audio.load();
@@ -242,5 +243,16 @@ angular.module("app")
             nextSong++
         }
     })
+
+    function pauseAudio(){
+        if (this.scrollY > 100){
+            audio.pause();
+            console.log('hi');
+        }else{
+            audio.play();
+        }
+    }
+
+    window.addEventListener("scroll", pauseAudio, false);
 
 });
